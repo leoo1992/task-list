@@ -1,15 +1,26 @@
 {
+  //OCULTA ARQUIVOS -(USAR APENAS EM DESENVOLVIMENTO)
   "files.exclude": {
+    //NODE
     "node_modules": true,
-    ".gitignore": true,
+    "package.json": true,
     "package-lock.json": true,
-    // "package.json": true,
+    //GIT
+    ".gitignore": true,
+    "README*": true,
+    //LINTERS E FORMAT
     "eslint.config*": true,
     ".prettierrc*": true,
-    "README*": true,
+    ".husky": true,
+    //RARE USED
     "src/reportWebVitals.js": true,
     "src/setupTests.js": true,
-    "public": true,
-    // ".husky": true
-  }
+    //PUBLIC
+    "public": true
+  },
+  //AUTO SAVES
+  "files.autoSave": "off",
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnSave": true,
+  "notebook.formatOnSave.enabled": true
 }

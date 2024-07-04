@@ -1,5 +1,6 @@
 {
   "tasks": [
+    //APERTE APENAS "F5" PARA EXECUTAR LOCAL
     {
       "label": "npm:dev",
       "type": "shell",
@@ -10,9 +11,8 @@
         "focus": false,
         "panel": "shared",
         "showReuseMessage": true,
-        "clear": false
+        "clear": true
       },
-      "problemMatcher": []
     }
   ]
 }

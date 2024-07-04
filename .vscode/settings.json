@@ -1,0 +1,15 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    ".gitignore": true,
+    "package-lock.json": true,
+    // "package.json": true,
+    "eslint.config*": true,
+    ".prettierrc*": true,
+    "README*": true,
+    "src/reportWebVitals.js": true,
+    "src/setupTests.js": true,
+    "public": true,
+    // ".husky": true
+  }
+}

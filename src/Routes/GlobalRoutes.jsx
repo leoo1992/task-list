@@ -2,16 +2,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from '../Pages/HomePage';
 import TaskPage from '../Pages/TaskPage';
-import RouteIncorrectPage from '../Pages/RouteIncorrectPage';
 import ErrorPage from '../Pages/ErrorPage';
+import Header from '../Components/Header';
 
 export default function GlobalRoutes() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route
           path="*"
-          element={<RouteIncorrectPage />}
+          element={<ErrorPage />}
         />
         <Route
           path="/"
@@ -20,6 +21,11 @@ export default function GlobalRoutes() {
         />
         <Route
           path="/task"
+          element={<TaskPage />}
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path="/task/:id"
           element={<TaskPage />}
           errorElement={<ErrorPage />}
         />

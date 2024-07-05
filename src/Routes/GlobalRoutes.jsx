@@ -1,35 +1,42 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from '../Pages/HomePage';
-import TaskPage from '../Pages/TaskPage';
-import ErrorPage from '../Pages/ErrorPage';
+import { lazy, useState } from 'react';
+import Suspense from '../utils/Suspense';
 import Header from '../Components/Header';
+import ErrorPage from '../Pages/ErrorPage';
+
+const HomePage = lazy(() => import('../Pages/HomePage'));
+const TaskPage = lazy(() => import('../Pages/TaskPage'));
 
 export default function GlobalRoutes() {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route
-          path="*"
-          element={<ErrorPage />}
-        />
-        <Route
-          path="/"
-          element={<HomePage />}
-          errorElement={<ErrorPage />}
-        />
-        <Route
-          path="/task"
-          element={<TaskPage />}
-          errorElement={<ErrorPage />}
-        />
-        <Route
-          path="/task/:id"
-          element={<TaskPage />}
-          errorElement={<ErrorPage />}
-        />
-      </Routes>
+      {!hasError && <Header />}
+      <Suspense>
+        <Routes>
+          <Route
+            path="*"
+            element={<ErrorPage setHasError={setHasError} />}
+          />
+          <Route
+            path="/"
+            element={<HomePage />}
+            errorElement={<ErrorPage setHasError={setHasError} />}
+          />
+          <Route
+            path="/task"
+            element={<TaskPage />}
+            errorElement={<ErrorPage setHasError={setHasError} />}
+          />
+          <Route
+            path="/task/:id"
+            element={<TaskPage />}
+            errorElement={<ErrorPage setHasError={setHasError} />}
+          />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

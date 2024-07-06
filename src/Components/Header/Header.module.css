@@ -2,13 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #0000003a;
   padding: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .logo {
-  color: white;
-  font-size: 1.2rem;
+  color: rgb(0, 7, 102);
+  font-size: 1.3rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -33,27 +35,36 @@
 }
 
 .btn {
-  width: 150px;
+  width: 130px;
   height: 40px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 0 15px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: rgb(41, 41, 41);
+  background: linear-gradient(45deg, rgb(0, 17, 255) 0%, rgb(62, 78, 255) 100%);
+  box-shadow: rgba(0, 0, 252, 0.377) 0px 7px 29px 0px;
   border: none;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 10px;
+}
+
+.textButton {
+  margin-left: 10px;
 }
 
 .btn:hover {
-  background: rgb(0, 0, 0);
+  background: rgb(0, 3, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 3, 255, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 300px) {
   .navLinks {
     display: none;
   }
@@ -66,15 +77,22 @@
     display: flex;
   }
 
+  .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .navLinks.active {
     display: flex;
     flex-direction: column;
+    align-items: end;
     position: absolute;
-    top: 45px;
+    top: 47px;
     right: 0;
-    width: 60%;
-    background-color: #333;
+    width: 140px;
+    background-color: #3333337c;
     padding: 0.3rem;
     text-align: center;
+    border-radius: 0 0 0 0.5rem;
   }
 }

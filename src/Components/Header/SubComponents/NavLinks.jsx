@@ -12,8 +12,8 @@ export default function NavLinks({ toggleNavbar, isActive }) {
         className={styles.textDecoration}
       >
         <button className={styles.btn}>
-          <RxPlusCircled size={20} />
-          Add Task
+          <RxPlusCircled size={25} />
+          <span className={styles.textButton}>Add Task</span>
         </button>
       </NavLink>
     </div>

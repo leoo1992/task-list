@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import ReactDOM from 'react-dom/client';
-import './GlobalCSS/index.css';
+import './GlobalCSS/global.css';
 import React from 'react';
 import GlobalRouters from './Routes/GlobalRoutes';
 

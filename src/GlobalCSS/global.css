@@ -1,3 +1,14 @@
+html {
+  background: linear-gradient(
+    45deg,
+    rgb(184, 192, 255) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgb(255, 208, 208) 100%
+  );
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,14 +16,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(
-    24deg,
-    rgb(167, 177, 248) 0%,
-    rgba(255, 255, 255, 1) 50%,
-    rgb(255, 196, 196) 100%
-  );
-  height: 100vh;
-  width: 100vw;
+
+  color: rgb(0, 7, 102);
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
 }
 
 code {

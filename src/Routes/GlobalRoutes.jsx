@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { lazy, useState } from 'react';
-import Suspense from '../utils/Suspense';
+import { lazy, useState, Suspense } from 'react';
 import Header from '../Components/Header';
+import Loader from '../Components/Loader';
 import ErrorPage from '../Pages/ErrorPage';
 
 const HomePage = lazy(() => import('../Pages/HomePage'));
@@ -14,7 +14,7 @@ export default function GlobalRoutes() {
   return (
     <BrowserRouter>
       {!hasError && <Header />}
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="*"

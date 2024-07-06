@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import TaskForm from '../../Components/TaskForm';
+
 export default function TaskPage() {
-  return <div>task</div>;
+  return <TaskForm />;
 }

@@ -10,30 +10,10 @@
   color: white;
   font-size: 1.2rem;
   text-decoration: none;
-  color: white;
 }
 
-.navLinks {
-  display: flex;
-  gap: 1rem;
-}
-
-.links {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.navLinks a {
-  color: white;
+.textDecoration {
   text-decoration: none;
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
-.navLinks a:hover {
-  background-color: #555;
-  border-radius: 1rem;
 }
 
 .burger {
@@ -52,11 +32,30 @@
   margin: 5px;
 }
 
-@media screen and (max-width: 768px) {
+.btn {
+  width: 150px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgb(41, 41, 41);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn:hover {
+  background: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 320px) {
   .navLinks {
     display: none;
-    border-radius: 0 0 0 1rem;
-    gap: 0;
   }
 
   .logo {
@@ -75,6 +74,7 @@
     right: 0;
     width: 60%;
     background-color: #333;
+    padding: 0.3rem;
     text-align: center;
   }
 }

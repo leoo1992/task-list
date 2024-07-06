@@ -1,32 +1,20 @@
 /* eslint-disable no-unused-vars */
 import styles from '../Header.module.css';
 import { NavLink } from 'react-router-dom';
-import { RxPlusCircled, RxHome } from 'react-icons/rx';
+import { RxPlusCircled } from 'react-icons/rx';
 
 export default function NavLinks({ toggleNavbar, isActive }) {
   return (
     <div className={`${styles.navLinks} ${isActive ? styles.active : ''}`}>
       <NavLink
-        to="/"
-        onClick={toggleNavbar}
-        className={`${styles.links}`}
-      >
-        <RxHome
-          size={18}
-          color="white"
-        />
-        Home
-      </NavLink>
-      <NavLink
         to="/task"
         onClick={toggleNavbar}
-        className={`${styles.links}`}
+        className={styles.textDecoration}
       >
-        <RxPlusCircled
-          size={20}
-          color="white"
-        />
-        Add Task
+        <button className={styles.btn}>
+          <RxPlusCircled size={20} />
+          Add Task
+        </button>
       </NavLink>
     </div>
   );

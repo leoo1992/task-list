@@ -10,7 +10,7 @@ export default function Logo({ toggleNavbar }) {
         onClick={toggleNavbar}
         className={styles.logo}
       >
-        Task List App
+        Task App
       </NavLink>
     </div>
   );

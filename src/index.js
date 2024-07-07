@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './GlobalCSS/global.css';
-import React from 'react';
 import GlobalRouters from './Routes/GlobalRoutes';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <div id="root">
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
     <GlobalRouters />
-  </div>,
+  </React.StrictMode>,
 );

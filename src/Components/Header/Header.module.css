@@ -35,10 +35,10 @@
 }
 
 .btn {
-  width: 130px;
-  height: 40px;
+  width: 145px;
+  height: 35px;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 1rem;
   padding: 0 15px;
   font-weight: 500;
   cursor: pointer;
@@ -48,11 +48,14 @@
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 10px;
+  margin-right: 0.5rem;
 }
 
 .textButton {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .btn:hover {
@@ -89,7 +92,7 @@
     position: absolute;
     top: 47px;
     right: 0;
-    width: 140px;
+    width: 160px;
     background-color: #3333337c;
     padding: 0.3rem;
     text-align: center;

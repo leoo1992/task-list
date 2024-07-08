@@ -52,7 +52,6 @@
 
 .btnChange:hover {
   scale: 1.1;
-  background-color: rgb(255, 217, 0);
 }
 
 .btnDel:hover {
@@ -67,17 +66,16 @@
 
 .btnSuccess:hover {
   scale: 1.1;
-  background-color: rgb(26, 250, 37);
 }
 
 .btnSuccess {
-  background-color: rgb(77, 255, 86);
-  color: black;
+  color: midnightblue;
+  background-color: rgba(198, 255, 198, 0);
 }
 
 .btnChange {
-  background-color: rgba(255, 217, 0, 0.842);
-  color: black;
+  color: midnightblue;
+  background-color: rgba(198, 255, 198, 0);
 }
 
 .btnDel {

@@ -6,7 +6,7 @@
   background: rgb(0, 31, 255);
   background: linear-gradient(
     45deg,
-    rgb(184, 192, 255) 0%,
+    rgb(184, 192, 255) -10%,
     rgba(255, 255, 255, 1) 50%,
     rgb(255, 208, 208) 100%
   );
@@ -38,7 +38,7 @@
   padding: 10px 25px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   box-shadow: rgba(0, 0, 252, 0.377) 0px 7px 29px 0px;
   outline: none;
   background: rgb(6, 14, 131);

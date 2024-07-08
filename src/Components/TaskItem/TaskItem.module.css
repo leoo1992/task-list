@@ -1,0 +1,200 @@
+.taskConainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+  max-width: 100%;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  max-width: 100%;
+  padding: 0rem 1rem 0rem 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.taskItem strong {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.btnContainer button,
+.dropdownMenu button {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: 550;
+  width: 70px;
+}
+
+.btnChange:hover {
+  scale: 1.1;
+  background-color: rgb(255, 217, 0);
+}
+
+.btnDel:hover {
+  scale: 1.1;
+  background-color: rgb(255, 0, 0);
+}
+
+.btnPut:hover {
+  scale: 1.1;
+  background-color: #007bff;
+}
+
+.btnSuccess:hover {
+  scale: 1.1;
+  background-color: rgb(26, 250, 37);
+}
+
+.btnSuccess {
+  background-color: rgb(77, 255, 86);
+  color: black;
+}
+
+.btnChange {
+  background-color: rgba(255, 217, 0, 0.842);
+  color: black;
+}
+
+.btnDel {
+  background-color: rgba(255, 71, 71, 0.959);
+  color: white;
+}
+
+.btnPut {
+  background-color: #0259b6;
+  color: white;
+}
+
+.idItem {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  font-size: small;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.StatusContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.TitleContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 1rem;
+}
+
+.StatusOkText {
+  color: rgb(19, 182, 19);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: center;
+  background-color: #baffc9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.StatusXText {
+  color: rgb(182, 19, 19);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: center;
+  background-color: #f3c1c1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.icon {
+  margin-top: 3px;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  z-index: 1000;
+  right: 0;
+  margin-top: 9rem;
+  margin-right: 2rem;
+  transform: translateY(0%);
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdownButton {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 330px) {
+  .btnContainer button {
+    font-weight: 500;
+    font-size: small;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btnContainer {
+    display: none;
+  }
+
+  .dropdownButton {
+    display: block;
+  }
+
+  .NameStatus {
+    display: none;
+  }
+}

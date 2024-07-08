@@ -3,8 +3,15 @@
   justify-content: space-between;
   align-items: center;
   background-color: #0000003a;
-  padding: 0.5rem;
+  padding: 0.75rem;
+  transform: translateY(0%);
+  transition: all 0.3s ease-in-out;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
 }
 
 .logo {
@@ -12,6 +19,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   text-decoration: none;
+  margin-left: 1rem;
 }
 
 .textDecoration {
@@ -42,7 +50,7 @@
   padding: 0 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   background: linear-gradient(45deg, rgb(0, 17, 255) 0%, rgb(62, 78, 255) 100%);
   box-shadow: rgba(0, 0, 252, 0.377) 0px 7px 29px 0px;
   border: none;
@@ -51,7 +59,7 @@
   justify-content: center;
   text-align: center;
   gap: 10px;
-  margin-right: 0.5rem;
+  margin-right: 1.5rem;
 }
 
 .textButton {
@@ -67,7 +75,17 @@
   );
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 500px) {
+  .logo {
+    margin-left: 0rem;
+  }
+
+  .btn {
+    margin-right: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
   .navLinks {
     display: none;
   }
@@ -90,7 +108,9 @@
     flex-direction: column;
     align-items: end;
     position: absolute;
-    top: 47px;
+    top: 55px;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in-out;
     right: 0;
     width: 160px;
     background-color: #3333337c;

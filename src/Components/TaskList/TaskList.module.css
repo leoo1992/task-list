@@ -1,0 +1,31 @@
+.taskList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.itemTaskList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(154, 154, 253);
+  padding: 0rem 0rem 1rem 0rem;
+  background-color: #ffffff28;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 700px) {
+  .taskList {
+    font-size: 0.8em;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { GenerateRadomId } from '../utils/GenerateRadomId';
 
 export const useSubmit = (addTask, editTask, task) => {
   const [title, setTitle] = useState('');
@@ -19,7 +20,7 @@ export const useSubmit = (addTask, editTask, task) => {
       if (task) {
         editTask(task.id, { id: task.id, title, completed });
       } else {
-        addTask({ id: Date.now(), title, completed });
+        addTask({ id: GenerateRadomId(), title, completed });
       }
       setTitle('');
       setCompleted(false);
@@ -27,5 +28,10 @@ export const useSubmit = (addTask, editTask, task) => {
     }
   };
 
-  return { title, completed, setCompleted, setTitle, handleSubmit };
+  const autoResize = (textarea) => {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
+
+  return { title, completed, setCompleted, setTitle, handleSubmit, autoResize };
 };

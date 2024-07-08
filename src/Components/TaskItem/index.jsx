@@ -2,8 +2,12 @@
 import { useTaskContext } from '../../Contexts/TaskContext';
 import { useNavigate } from 'react-router-dom';
 import styles from './TaskItem.module.css';
+import { RxChevronDown } from 'react-icons/rx';
+import TaskButtons from './SubComponents/TaskButtons';
+import DropdownMenu from './SubComponents/DropdownMenu';
+import TaskStatus from './SubComponents/TaskStatus';
 
-export default function TaskItem({ task }) {
+export default function TaskItem({ task, isDropdownOpen, setOpenDropdownId }) {
   const { toggleTaskCompletion, deleteTask } = useTaskContext();
   const navigate = useNavigate();
 
@@ -12,14 +16,40 @@ export default function TaskItem({ task }) {
   };
 
   return (
-    <div>
-      <strong>Nome: {task?.title}</strong>
-      <strong>Status: {task?.completed ? 'Concluída' : 'Incompleta'}</strong>
-      <button onClick={() => toggleTaskCompletion(task?.id)}>
-        {task?.completed ? ' Ativar' : ' Concluir'}
-      </button>
-      <button onClick={() => deleteTask(task?.id)}>Deletar</button>
-      <button onClick={handleEdit}>Editar</button>
+    <div className={styles.taskConainer}>
+      <div className={styles.Header}>
+        <strong className={styles.idItem}>{task?.id}</strong>
+        <div className={styles.btnContainer}>
+          <TaskButtons
+            task={task}
+            toggleTaskCompletion={toggleTaskCompletion}
+            handleEdit={handleEdit}
+            deleteTask={deleteTask}
+            setOpenDropdownId={setOpenDropdownId}
+          />
+        </div>
+        <button
+          className={styles.dropdownButton}
+          onClick={() => setOpenDropdownId(isDropdownOpen ? null : task.id)}
+        >
+          <RxChevronDown size={24} />
+        </button>
+        <DropdownMenu
+          task={task}
+          isDropdownOpen={isDropdownOpen}
+          toggleTaskCompletion={toggleTaskCompletion}
+          handleEdit={handleEdit}
+          deleteTask={deleteTask}
+          setOpenDropdownId={setOpenDropdownId}
+        />
+      </div>
+      <div className={styles.taskItem}>
+        <strong className={styles.TitleContainer}>
+          <span className={styles.NameStatus}>Tarefa:</span>{' '}
+          <span className={styles.titleText}>{task?.title}</span>
+        </strong>
+        <TaskStatus task={task} />
+      </div>
     </div>
   );
 }

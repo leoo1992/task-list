@@ -1,4 +1,3 @@
- 
 import styles from './TaskForm.module.css';
 import { useTaskContext } from '../../Contexts/TaskContext';
 import { useLocation } from 'react-router-dom';
@@ -8,11 +7,8 @@ export default function TaskForm() {
   const location = useLocation();
   const { task } = location.state || {};
   const { addTask, editTask } = useTaskContext();
-  const { completed, title, setTitle, setCompleted, handleSubmit } = useSubmit(
-    addTask,
-    editTask,
-    task,
-  );
+  const { completed, title, setTitle, setCompleted, handleSubmit, autoResize } =
+    useSubmit(addTask, editTask, task);
 
   return (
     <form
@@ -24,12 +20,20 @@ export default function TaskForm() {
       </span>
       <div className={styles.formGroup}>
         <label className={styles.label}>Nome:</label>
-        <input
+        <textarea
           type="text"
           className={styles.inputText}
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            autoResize(e.target);
+          }}
+          onInput={(e) => autoResize(e.target)}
           placeholder="Nome"
+          maxLength={60}
+          rows="2"
+          required
+          autoFocus
         />
       </div>
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {
   useState,
   useEffect,
@@ -14,6 +13,7 @@ import {
   EditTask,
   ToggleTaskCompletion,
 } from '../Actions';
+import { useToast } from './ToastContext';
 
 const TaskContext = createContext();
 
@@ -21,6 +21,10 @@ export const TaskProvider = ({ children }) => {
   const [taskList, setTaskList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [taskToDelete, setTaskToDelete] = useState(null);
+  const [openDropdownId, setOpenDropdownId] = useState(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchTaskList = async () => {
@@ -33,6 +37,7 @@ export const TaskProvider = ({ children }) => {
           setTaskList(data);
         }
       } catch (err) {
+        console.log(err);
         setError(true);
       } finally {
         setTimeout(() => {
@@ -52,12 +57,36 @@ export const TaskProvider = ({ children }) => {
     setTaskList((prevTaskList) => EditTask(prevTaskList, id, updatedTask));
   }, []);
 
-  const deleteTask = useCallback((id) => {
-    setTaskList((prevTaskList) => DeleteTask(prevTaskList, id));
-  }, []);
+  const deleteTask = useCallback(
+    async (id) => {
+      try {
+        const result = await DeleteTask(taskList, id);
+        setTaskList(result);
+        showToast('Tarefa excluída', { type: 'success' });
+      } catch (error) {
+        console.log(error);
+        showToast('Erro ao excluir tarefa', { type: 'error' });
+      }
+    },
+    [taskList, showToast],
+  );
 
   const toggleTaskCompletion = useCallback((id) => {
     setTaskList((prevTaskList) => ToggleTaskCompletion(prevTaskList, id));
+  }, []);
+
+  const handleDeleteClick = useCallback((task) => {
+    setTaskToDelete(task);
+    setIsModalOpen(true);
+  }, []);
+
+  const handleConfirmDelete = useCallback(() => {
+    deleteTask(taskToDelete.id);
+    setIsModalOpen(false);
+  }, [deleteTask, taskToDelete]);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
   }, []);
 
   const contextValue = useMemo(
@@ -69,6 +98,13 @@ export const TaskProvider = ({ children }) => {
       editTask,
       deleteTask,
       toggleTaskCompletion,
+      isModalOpen,
+      taskToDelete,
+      handleDeleteClick,
+      handleConfirmDelete,
+      handleCloseModal,
+      openDropdownId,
+      setOpenDropdownId,
     }),
     [
       taskList,
@@ -78,6 +114,13 @@ export const TaskProvider = ({ children }) => {
       editTask,
       deleteTask,
       toggleTaskCompletion,
+      isModalOpen,
+      taskToDelete,
+      handleDeleteClick,
+      handleConfirmDelete,
+      handleCloseModal,
+      openDropdownId,
+      setOpenDropdownId,
     ],
   );
 

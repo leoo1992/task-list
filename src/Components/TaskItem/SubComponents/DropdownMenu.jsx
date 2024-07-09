@@ -9,6 +9,7 @@ const DropdownMenu = ({
   handleEdit,
   deleteTask,
   setOpenDropdownId,
+  handleDeleteClick,
 }) =>
   isDropdownOpen && (
     <div className={styles.dropdownMenu}>
@@ -18,6 +19,7 @@ const DropdownMenu = ({
         handleEdit={handleEdit}
         deleteTask={deleteTask}
         setOpenDropdownId={setOpenDropdownId}
+        handleDeleteClick={handleDeleteClick}
       />
     </div>
   );

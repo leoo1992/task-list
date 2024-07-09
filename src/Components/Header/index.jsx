@@ -1,17 +1,20 @@
 /* eslint-disable no-unused-vars */
 import styles from './Header.module.css';
-import { useState, useEffect } from 'react';
 import BurgButton from './SubComponents/BurgButton';
 import NavLinks from './SubComponents/NavLinks';
 import Logo from './SubComponents/Logo';
-import { ToggleNavbar } from '../../utils/ToggleNavbar';
 import HeaderScrollEffect from '../../utils/HeaderScrollEffect';
+import { useHeaderState } from '../../Hooks/useHeaderState';
 
 export default function Header() {
-  const [isActive, setIsActive] = useState(false);
-  const toggleNavbar = ToggleNavbar({ setIsActive, isActive });
-  const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const {
+    isActive,
+    toggleNavbar,
+    isVisible,
+    setIsVisible,
+    prevScrollPos,
+    setPrevScrollPos,
+  } = useHeaderState();
 
   return (
     <>

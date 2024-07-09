@@ -10,7 +10,7 @@ export default function Loader() {
       </div>
       <div>
         <span className={styles.dots}>
-          Carregando
+          <span>Carregando</span>
           <span className={styles.dot}>.</span>
           <span className={styles.dot}>.</span>
           <span className={styles.dot}>.</span>

@@ -1,38 +1,47 @@
 import styles from '../TaskItem.module.css';
+import { useToast } from '../../../Contexts/ToastContext';
 
 const TaskButtons = ({
   task,
   toggleTaskCompletion,
   handleEdit,
-  deleteTask,
+  handleDeleteClick,
   setOpenDropdownId,
-}) => (
-  <>
-    <button
-      className={task?.completed ? styles.btnChange : styles.btnSuccess}
-      onClick={() => {
-        toggleTaskCompletion(task?.id);
-        setOpenDropdownId(null);
-      }}
-    >
-      {task?.completed ? ' Ativar' : ' Concluir'}
-    </button>
-    <button
-      className={styles.btnPut}
-      onClick={handleEdit}
-    >
-      Editar
-    </button>
-    <button
-      className={styles.btnDel}
-      onClick={() => {
-        deleteTask(task?.id);
-        setOpenDropdownId(null);
-      }}
-    >
-      Deletar
-    </button>
-  </>
-);
+}) => {
+  const { showToast } = useToast();
+
+  return (
+    <>
+      <button
+        className={styles.btnLink}
+        onClick={() => {
+          toggleTaskCompletion(task?.id);
+          setOpenDropdownId(null);
+          showToast(`Status alterado`);
+        }}
+      >
+        <u>{task?.completed ? ' Ativar' : ' Concluir'}</u>
+      </button>
+      <button
+        className={styles.btnPut}
+        onClick={() => {
+          handleEdit();
+          setOpenDropdownId(null);
+        }}
+      >
+        Editar
+      </button>
+      <button
+        className={styles.btnDel}
+        onClick={() => {
+          handleDeleteClick(task);
+          setOpenDropdownId(null);
+        }}
+      >
+        Deletar
+      </button>
+    </>
+  );
+};
 
 export default TaskButtons;

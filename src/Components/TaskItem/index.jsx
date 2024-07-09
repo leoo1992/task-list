@@ -8,7 +8,7 @@ import DropdownMenu from './SubComponents/DropdownMenu';
 import TaskStatus from './SubComponents/TaskStatus';
 
 export default function TaskItem({ task, isDropdownOpen, setOpenDropdownId }) {
-  const { toggleTaskCompletion, deleteTask } = useTaskContext();
+  const { toggleTaskCompletion, handleDeleteClick } = useTaskContext();
   const navigate = useNavigate();
 
   const handleEdit = () => {
@@ -24,7 +24,7 @@ export default function TaskItem({ task, isDropdownOpen, setOpenDropdownId }) {
             task={task}
             toggleTaskCompletion={toggleTaskCompletion}
             handleEdit={handleEdit}
-            deleteTask={deleteTask}
+            handleDeleteClick={handleDeleteClick}
             setOpenDropdownId={setOpenDropdownId}
           />
         </div>
@@ -39,13 +39,13 @@ export default function TaskItem({ task, isDropdownOpen, setOpenDropdownId }) {
           isDropdownOpen={isDropdownOpen}
           toggleTaskCompletion={toggleTaskCompletion}
           handleEdit={handleEdit}
-          deleteTask={deleteTask}
+          handleDeleteClick={handleDeleteClick}
           setOpenDropdownId={setOpenDropdownId}
         />
       </div>
       <div className={styles.taskItem}>
         <strong className={styles.TitleContainer}>
-          <span className={styles.NameStatus}>Tarefa:</span>{' '}
+          <span className={styles.NameStatus}>Tarefa:</span>
           <span className={styles.titleText}>{task?.title}</span>
         </strong>
         <TaskStatus task={task} />

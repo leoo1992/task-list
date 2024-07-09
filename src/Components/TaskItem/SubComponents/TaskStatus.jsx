@@ -10,7 +10,7 @@ const TaskStatus = ({ task }) => (
     >
       {task?.completed ? (
         <>
-          Concluída
+          <span className={styles.statusText}>Concluída</span>
           <RxCheckCircled
             size={20}
             className={styles.icon}
@@ -18,7 +18,7 @@ const TaskStatus = ({ task }) => (
         </>
       ) : (
         <>
-          Incompleta
+          <span className={styles.statusText}>Incompleta</span>
           <RxCrossCircled
             size={20}
             className={styles.icon}

@@ -1,14 +1,9 @@
 import styles from './TaskForm.module.css';
-import { useTaskContext } from '../../Contexts/TaskContext';
-import { useLocation } from 'react-router-dom';
 import { useSubmit } from '../../Hooks/useSubmit';
 
 export default function TaskForm() {
-  const location = useLocation();
-  const { task } = location.state || {};
-  const { addTask, editTask } = useTaskContext();
-  const { completed, title, setTitle, setCompleted, handleSubmit, autoResize } =
-    useSubmit(addTask, editTask, task);
+  const { title, completed, setTitle, setCompleted, handleSubmit, autoResize } =
+    useSubmit();
 
   return (
     <form
@@ -16,7 +11,7 @@ export default function TaskForm() {
       onSubmit={handleSubmit}
     >
       <span className={styles.title}>
-        {task ? 'Modificar Tarefa' : 'Adicionar tarefa'}
+        {completed !== undefined ? 'Modificar Tarefa' : 'Adicionar tarefa'}
       </span>
       <div className={styles.formGroup}>
         <label className={styles.label}>Nome:</label>
@@ -37,7 +32,7 @@ export default function TaskForm() {
         />
       </div>
 
-      {task ? (
+      {completed !== undefined ? (
         <div className={styles.formGroup}>
           <label className={styles.label}>Status:</label>
           <div className={styles.checkboxContainer}>
@@ -56,7 +51,7 @@ export default function TaskForm() {
         type="submit"
         className={styles.btn}
       >
-        {task ? 'Salvar' : 'Adicionar'}
+        {completed !== undefined ? 'Salvar' : 'Adicionar'}
       </button>
     </form>
   );

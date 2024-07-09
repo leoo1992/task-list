@@ -1,15 +1,23 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
 import { useTaskContext } from '../../Contexts/TaskContext';
 import Loader from '../../Components/Loader';
 import TaskItem from '../../Components/TaskItem';
 import ErrorPage from '../../Pages/ErrorPage';
 import styles from './TaskList.module.css';
 import ResizeDropDownEffect from '../../utils/ResizeDropDownEffect';
+import { ConfirmModal } from '../ConfirmModal';
 
 export default function TaskList() {
-  const { taskList, loading, error } = useTaskContext();
-  const [openDropdownId, setOpenDropdownId] = useState(null);
+  const {
+    taskList,
+    loading,
+    error,
+    openDropdownId,
+    setOpenDropdownId,
+    isModalOpen,
+    handleCloseModal,
+    handleConfirmDelete,
+  } = useTaskContext();
 
   if (loading) {
     return <Loader />;
@@ -34,6 +42,11 @@ export default function TaskList() {
           />
         </div>
       ))}
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 }

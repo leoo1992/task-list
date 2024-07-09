@@ -2,7 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0000003a;
+  background: linear-gradient(
+    45deg,
+    rgba(189, 188, 188, 0.705) 0%,
+    rgba(0, 0, 0, 0.329) 100%
+  );
   padding: 0.75rem;
   transform: translateY(0%);
   transition: all 0.3s ease-in-out;
@@ -52,7 +56,6 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   background: linear-gradient(45deg, rgb(0, 17, 255) 0%, rgb(62, 78, 255) 100%);
-  box-shadow: rgba(0, 0, 252, 0.377) 0px 7px 29px 0px;
   border: none;
   display: flex;
   align-items: center;
@@ -117,5 +120,11 @@
     padding: 0.3rem;
     text-align: center;
     border-radius: 0 0 0 0.5rem;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  * {
+    font-size: x-small;
   }
 }

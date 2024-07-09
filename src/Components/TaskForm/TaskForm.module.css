@@ -4,8 +4,12 @@
   flex-direction: column;
   max-width: 500px;
   margin: 2rem auto;
-  background-color: #0059ff2c;
+  background-color: #fff;
+  border: 0.1rem solid #ccc;
   border-radius: 0.5rem;
+}
+
+.form:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -31,25 +35,33 @@
 
 .inputText {
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 0.1rem solid #ccc;
+  background-color: #fff;
   border-radius: 0.5rem;
   resize: none;
 }
 
 .inputText:focus {
   border-color: rgb(0, 0, 138);
+  background-color: #fefefe;
   outline: none;
 }
 
 .checkboxContainer {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-end;
+  justify-content: start;
+  align-content: flex-end;
+  gap: 0.3rem;
 }
 
 .checkbox {
   width: auto;
-  transform: scale(1.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-content: flex-end;
+  transform: scale(1.2);
   margin-left: 1.5rem;
 }
 
@@ -62,7 +74,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: rgba(0, 0, 252, 0.377) 0px 7px 29px 0px;
   outline: none;
   background: rgb(6, 14, 131);
   background: linear-gradient(

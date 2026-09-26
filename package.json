@@ -39,9 +39,8 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@eslint/compat": "^1.1.0",
-    "@eslint/js": "^9.6.0",
-    "eslint": "^9.6.0",
+    "@eslint/js": "^8.57.1",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.3",
     "globals": "^15.8.0",
@@ -50,5 +49,8 @@
   },
   "script": {
     "prepare": "husky install"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
